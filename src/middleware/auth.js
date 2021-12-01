@@ -5,7 +5,7 @@ const auth = async(req,res,next)=>{
     try{
         const token =req.header('Authorization').replace('Bearer ','');
         //console.log(token);
-        const decode = jwt.verify(token, 'news-application');
+        const decode = jwt.verify(token, process.env.JWT_SECRET);
         //console.log(decode);
         const reporter = await Reporter.findOne({_id:decode._id,'tokens.token':token})
         if(!reporter){
