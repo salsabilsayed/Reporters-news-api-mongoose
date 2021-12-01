@@ -14,7 +14,6 @@ const reporterSchema = new mongoose.Schema({
         required:true,
         trim:true,
         unique:true,
-        lowercase:true,
         validate(value){
             if(!validator.isEmail(value)){
                 throw new Error('Invalid Email!')
@@ -25,7 +24,7 @@ const reporterSchema = new mongoose.Schema({
         type:String,
         required:true,
         trim:true,
-        minLength:5
+        minLength:6
     },
     age:{
         type:Number,
